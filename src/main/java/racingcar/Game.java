@@ -21,11 +21,22 @@ public class Game {
 	}
 
 	public void play() {
+		lineUpCars();
+		preparePlayTime();
+	}
+
+	private void lineUpCars() {
 		display.askCarName();
 		try {
 			this.carManager = new CarManager(inputValidator.validateCarNames(Console.readLine()));
 		} catch (IllegalArgumentException e) {
 			display.printError(e);
+			lineUpCars();
 		}
+	}
+
+	private void preparePlayTime() {
+		display.askPlayTime();
+		Console.readLine();
 	}
 }
