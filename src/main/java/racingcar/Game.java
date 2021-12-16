@@ -37,6 +37,10 @@ public class Game {
 
 	private void preparePlayTime() {
 		display.askPlayTime();
-		Console.readLine();
+		try {
+			inputValidator.validatePlayTime(Console.readLine());
+		} catch (Exception e) {
+			display.printError(e);
+		}
 	}
 }
