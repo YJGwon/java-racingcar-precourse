@@ -24,7 +24,7 @@ public class Game {
 		lineUpCars();
 		preparePlayTime();
 		gameManager.play();
-		gameManager.getWinner();
+		gameManager.announceWinner();
 	}
 
 	private void lineUpCars() {

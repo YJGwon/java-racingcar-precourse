@@ -2,7 +2,6 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -16,12 +15,14 @@ import camp.nextstep.edu.missionutils.Randoms;
  */
 public class GameManager {
 	private static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 있습니다.";
+	private static final String WINNER_NAME_DELIMITER = ", ";
 	private static final int MIN_RANDOM_NUMBER = 0;
 	private static final int MAX_RANDOM_NUMBER = 9;
 	private static final int CRITERION = 4;
 
 	private final Display display;
 	private final ArrayList<Car> cars = new ArrayList<>();
+
 	private int playTime;
 	private int maxPosition;
 
@@ -40,11 +41,11 @@ public class GameManager {
 		}
 	}
 
-	public List<Car> getWinner() {
+	public void announceWinner() {
 		setMaxPosition();
-		return cars.stream()
-			.filter(car -> car.isPosition(maxPosition))
-			.collect(Collectors.toList());
+		display.printWinner(cars.stream().filter(car -> car.isPosition(maxPosition))
+								.map(Car::getName)
+								.collect(Collectors.joining(WINNER_NAME_DELIMITER)));
 	}
 
 	private void lineUpCars(String[] carNames) {

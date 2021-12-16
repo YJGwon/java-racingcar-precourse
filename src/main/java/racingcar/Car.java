@@ -12,8 +12,20 @@ public class Car {
 	}
 
 	// 추가 기능 구현
+	public String getName() {
+		return this.name;
+	}
+
+	public int getPosition() {
+		return this.position;
+	}
+
 	public boolean isName(String name) {
 		return this.name.equals(name);
+	}
+
+	public boolean isPosition(int position) {
+		return this.position >= position;
 	}
 
 	@Override
@@ -29,13 +41,5 @@ public class Car {
 
 	public void move() {
 		this.position++;
-	}
-
-	public int getPosition() {
-		return this.position;
-	}
-
-	public boolean isPosition(int position) {
-		return this.position >= position;
 	}
 }

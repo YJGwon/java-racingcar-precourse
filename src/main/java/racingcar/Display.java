@@ -12,6 +12,7 @@ public class Display {
 	private static final String PLAY_TIME_QUESTION = "시도할 회수는 몇회인가요?";
 
 	private static final String ERROR_FORMAT = "[ERROR] %s%n";
+	private static final String WINNER_FORMAT = "최종 우승자 : %s%n";
 
 	public void askCarName() {
 		System.out.println(CAR_NAME_QUESTION);
@@ -25,7 +26,11 @@ public class Display {
 		System.out.println(car.toString());
 	}
 
-	public void printError(Exception e) {
-		System.out.printf(ERROR_FORMAT, e.getMessage());
+	public void printWinner(String winner) {
+		System.out.printf(WINNER_FORMAT, winner);
+	}
+
+	public void printError(Exception exception) {
+		System.out.printf(ERROR_FORMAT, exception.getMessage());
 	}
 }
