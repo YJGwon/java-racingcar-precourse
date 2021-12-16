@@ -13,6 +13,8 @@ public class Game {
 	private final Display display;
 	private final InputValidator inputValidator;
 
+	private CarManager carManager;
+
 	public Game() {
 		this.display = new Display();
 		this.inputValidator = new InputValidator();
@@ -21,7 +23,7 @@ public class Game {
 	public void play() {
 		display.askCarName();
 		try {
-			inputValidator.validateCarNames(Console.readLine());
+			this.carManager = new CarManager(inputValidator.validateCarNames(Console.readLine()));
 		} catch (IllegalArgumentException e) {
 			display.printError(e);
 		}
