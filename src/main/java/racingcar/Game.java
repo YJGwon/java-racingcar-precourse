@@ -41,6 +41,7 @@ public class Game {
 			inputValidator.validatePlayTime(Console.readLine());
 		} catch (Exception e) {
 			display.printError(e);
+			preparePlayTime();
 		}
 	}
 }
