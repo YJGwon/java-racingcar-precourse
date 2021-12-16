@@ -20,6 +20,10 @@ public class Game {
 
 	public void play() {
 		display.askCarName();
-		inputValidator.validateCarNames(Console.readLine());
+		try {
+			inputValidator.validateCarNames(Console.readLine());
+		} catch (IllegalArgumentException e) {
+			display.printError(e);
+		}
 	}
 }
