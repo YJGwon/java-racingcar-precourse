@@ -20,10 +20,10 @@ public class Game {
 		this.inputValidator = new InputValidator();
 	}
 
-	public void play() {
+	public void run() {
 		lineUpCars();
 		preparePlayTime();
-		gameManager.tryToMove();
+		gameManager.play();
 	}
 
 	private void lineUpCars() {

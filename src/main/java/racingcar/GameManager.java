@@ -30,7 +30,13 @@ public class GameManager {
 		this.playTime = playTime;
 	}
 
-	public void tryToMove() {
+	public void play() {
+		for (int i = 0; i < playTime; i++) {
+			tryToMove();
+		}
+	}
+
+	private void tryToMove() {
 		for (Car car : cars) {
 			if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= CRITERION) {
 				car.move();
