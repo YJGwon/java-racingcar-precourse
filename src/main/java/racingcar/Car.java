@@ -12,4 +12,8 @@ public class Car {
 	public boolean isName(String name) {
 		return this.name.equals(name);
 	}
+
+	public void move() {
+		this.position++;
+	}
 }

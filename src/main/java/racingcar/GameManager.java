@@ -15,6 +15,7 @@ public class GameManager {
 	private static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 있습니다.";
 	private static final int MIN_RANDOM_NUMBER = 0;
 	private static final int MAX_RANDOM_NUMBER = 9;
+	private static final int CRITERION = 4;
 
 	private final ArrayList<Car> cars = new ArrayList<>();
 	private int playTime;
@@ -29,7 +30,9 @@ public class GameManager {
 
 	public void tryToMove() {
 		for (Car car : cars) {
-			Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+			if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= CRITERION) {
+				car.move();
+			}
 		}
 	}
 
