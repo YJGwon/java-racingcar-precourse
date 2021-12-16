@@ -21,6 +21,10 @@ public class Display {
 		System.out.println(PLAY_TIME_QUESTION);
 	}
 
+	public void printCar(Car car) {
+		System.out.println(car.toString());
+	}
+
 	public void printError(Exception e) {
 		System.out.printf(ERROR_FORMAT, e.getMessage());
 	}

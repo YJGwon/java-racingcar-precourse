@@ -17,11 +17,13 @@ public class GameManager {
 	private static final int MAX_RANDOM_NUMBER = 9;
 	private static final int CRITERION = 4;
 
+	private final Display display;
 	private final ArrayList<Car> cars = new ArrayList<>();
 	private int playTime;
 
-	public GameManager(String[] carNames) {
+	public GameManager(String[] carNames, Display display) {
 		lineUpCars(carNames);
+		this.display = display;
 	}
 
 	public void setPlayTime(int playTime) {
@@ -33,6 +35,7 @@ public class GameManager {
 			if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= CRITERION) {
 				car.move();
 			}
+			display.printCar(car);
 		}
 	}
 

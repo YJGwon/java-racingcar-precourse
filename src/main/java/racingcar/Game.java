@@ -29,7 +29,7 @@ public class Game {
 	private void lineUpCars() {
 		display.askCarName();
 		try {
-			this.gameManager = new GameManager(inputValidator.validateCarNames(Console.readLine()));
+			this.gameManager = new GameManager(inputValidator.validateCarNames(Console.readLine()), display);
 		} catch (IllegalArgumentException e) {
 			display.printError(e);
 			lineUpCars();
