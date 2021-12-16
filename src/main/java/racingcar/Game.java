@@ -13,7 +13,7 @@ public class Game {
 	private final Display display;
 	private final InputValidator inputValidator;
 
-	private CarManager carManager;
+	private GameManager gameManager;
 
 	public Game() {
 		this.display = new Display();
@@ -23,12 +23,13 @@ public class Game {
 	public void play() {
 		lineUpCars();
 		preparePlayTime();
+		gameManager.tryToMove();
 	}
 
 	private void lineUpCars() {
 		display.askCarName();
 		try {
-			this.carManager = new CarManager(inputValidator.validateCarNames(Console.readLine()));
+			this.gameManager = new GameManager(inputValidator.validateCarNames(Console.readLine()));
 		} catch (IllegalArgumentException e) {
 			display.printError(e);
 			lineUpCars();
@@ -38,7 +39,7 @@ public class Game {
 	private void preparePlayTime() {
 		display.askPlayTime();
 		try {
-			inputValidator.validatePlayTime(Console.readLine());
+			gameManager.setPlayTime(inputValidator.validatePlayTime(Console.readLine()));
 		} catch (Exception e) {
 			display.printError(e);
 			preparePlayTime();
