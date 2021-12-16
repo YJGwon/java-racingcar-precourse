@@ -1,6 +1,9 @@
-package racingcar;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.service.GameManager;
+import racingcar.service.InputValidator;
+import racingcar.view.Display;
 
 /**
  * 게임의 처리 흐름을 제어하는 controller class

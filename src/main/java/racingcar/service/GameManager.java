@@ -1,10 +1,12 @@
-package racingcar;
+package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.model.Car;
+import racingcar.view.Display;
 
 /**
  * 게임 진행을 담당하는 service class

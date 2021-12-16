@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.model.Car;
 
 /**
  * 사용자에게 보여지는 출력을 담당하는 view class

@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.service;
 
 /**
  * 입력값 가공과 검증을 담당하는 service class

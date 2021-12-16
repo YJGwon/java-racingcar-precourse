@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 public class Car {
 	private static final String TO_STRING_CONJUNCTION = " : ";
