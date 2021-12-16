@@ -1,6 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -20,6 +23,7 @@ public class GameManager {
 	private final Display display;
 	private final ArrayList<Car> cars = new ArrayList<>();
 	private int playTime;
+	private int maxPosition;
 
 	public GameManager(String[] carNames, Display display) {
 		lineUpCars(carNames);
@@ -36,6 +40,20 @@ public class GameManager {
 		}
 	}
 
+	public List<Car> getWinner() {
+		setMaxPosition();
+		return cars.stream()
+			.filter(car -> car.isPosition(maxPosition))
+			.collect(Collectors.toList());
+	}
+
+	private void lineUpCars(String[] carNames) {
+		for (String carName : carNames) {
+			checkNameDuplicate(carName);
+			cars.add(new Car(carName));
+		}
+	}
+
 	private void tryToMove() {
 		for (Car car : cars) {
 			if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= CRITERION) {
@@ -45,11 +63,10 @@ public class GameManager {
 		}
 	}
 
-	private void lineUpCars(String[] carNames) {
-		for (String carName : carNames) {
-			checkNameDuplicate(carName);
-			cars.add(new Car(carName));
-		}
+	private void setMaxPosition() {
+		this.maxPosition =  cars.stream()
+								.max(Comparator.comparingInt(Car::getPosition))
+								.get().getPosition();
 	}
 
 	private void checkNameDuplicate(String carName) {
