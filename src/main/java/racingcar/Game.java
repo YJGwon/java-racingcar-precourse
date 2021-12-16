@@ -9,15 +9,17 @@ import camp.nextstep.edu.missionutils.Console;
  * @since 1.0
  * @version 1.0
  */
-public class GameController {
+public class Game {
 	private final Display display;
+	private final InputValidator inputValidator;
 
-	public GameController() {
+	public Game() {
 		this.display = new Display();
+		this.inputValidator = new InputValidator();
 	}
 
 	public void play() {
 		display.askCarName();
-		Console.readLine();
+		inputValidator.validateCarNames(Console.readLine());
 	}
 }
